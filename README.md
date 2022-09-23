@@ -1,6 +1,6 @@
 ```
 steps:
-  - uses: pymc20/action-confluence
+  - uses: pymc20/action-confluence@main
   with:
     pageId: 111111111
     pageTitle: test
