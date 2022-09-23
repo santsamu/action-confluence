@@ -1,0 +1,20 @@
+name: action-confluence
+description: You can update page of JIRA Confluence.
+author: pymc20
+inputs:
+  pageId:
+    description: Jira Confluence Page ID
+    required: true
+  pageTitle:
+    description: Jira Confluence Page Title
+    required: true
+  contentsJson:
+    description: What To Edit On The Jira Confluence Page
+    default: ""
+    required: false
+runs:
+  using: node16
+  main: dist/index.js
+branding:
+  icon: edit
+  color: blue
