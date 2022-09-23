@@ -28,7 +28,7 @@ async function run(): Promise<void> {
 
         await axios.put(`${jiraUrl}/wiki/rest/api/content/${pageId}`, {
             "version": {
-                "number": version
+                "number": _.toInteger(version) + 1
             },
             "title": pageTitle,
             "type": "page",
