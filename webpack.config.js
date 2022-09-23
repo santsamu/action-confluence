@@ -1,7 +1,7 @@
 const { resolve } = require('path')
 
 module.exports = {
-    entry: './dist/main.js',
+    entry: './lib/main.js',
     target: 'node',
     output: {
         filename: 'index.js',

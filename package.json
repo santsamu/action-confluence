@@ -13,6 +13,7 @@
     "lodash": "^4.17.21"
   },
   "scripts": {
-    "bulid": "tsc"
+    "bulid": "tsc",
+    "webpack": "webpack --mode=production"
   }
 }
