@@ -21,11 +21,13 @@ async function run(): Promise<void> {
             console.log('Check Value');
             return;
         }
-
-        const currentPage = await axios.get(`${jiraUrl}/wiki/rest/api/content/${pageId}?expand=body.storage,version`);
-        const version = _.get(currentPage, 'version.number', '');
-        const prevContents = _.get(currentPage, 'body.storage.value', '');
-
+        const currentPage = await axios.get(`${jiraUrl}/wiki/rest/api/content/${pageId}?expand=body.storage,version`, {
+            headers: {
+                "Authorization": `Basic ${jiraAuth}`
+            }
+        });
+        const version = _.get(currentPage.data, 'version.number', '');
+        const prevContents = _.get(currentPage.data, 'body.storage.value', '');
         await axios.put(`${jiraUrl}/wiki/rest/api/content/${pageId}`, {
             "version": {
                 "number": _.toInteger(version) + 1
