@@ -10,6 +10,6 @@ steps:
         li: "test\ntest\ntest"
       }
   env:
-    JIRA_URL: ${{ secrets.JIRA_URL }}
-    JIRA_AUTH: ${{ secrets.JIRA_AUTH }}
+    JIRA_URL: ${{ secrets.JIRA_URL }}     // DOMAIN.atlassian.net/
+    JIRA_AUTH: ${{ secrets.JIRA_AUTH }}   // USER:TOKEN -> base64
 ```
