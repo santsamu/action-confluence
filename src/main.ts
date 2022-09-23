@@ -38,6 +38,10 @@ async function run(): Promise<void> {
                     "representation": "storage"
                 }
             }
+        }, {
+            headers: {
+                "Authorization": `Basic ${jiraAuth}`
+            }
         })
 
     } catch (error) {
