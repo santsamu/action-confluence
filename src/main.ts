@@ -8,6 +8,7 @@ async function run(): Promise<void> {
         const pageId = core.getInput('pageId')
         const pageTitle = core.getInput('pageTitle')
         const contentsJson = core.getInput('contentsJson')
+        const appendContents = core.getInput('appendContents')
         const jiraAuth = process.env.JIRA_AUTH;
         const jiraUrl = process.env.JIRA_URL;
 
@@ -28,6 +29,10 @@ async function run(): Promise<void> {
         });
         const version = _.get(currentPage.data, 'version.number', '');
         const prevContents = _.get(currentPage.data, 'body.storage.value', '');
+        const newContents = makeContents(contentsJson);
+        if(appendContents) {
+            newContents = prevContents + newContents;
+        }
         await axios.put(`${jiraUrl}/wiki/rest/api/content/${pageId}`, {
             "version": {
                 "number": _.toInteger(version) + 1
@@ -36,7 +41,7 @@ async function run(): Promise<void> {
             "type": "page",
             "body": {
                 "storage": {
-                    "value": `${prevContents}${makeContents(contentsJson)}`,
+                    "value": `${makeContents(contentsJson)}`,
                     "representation": "storage"
                 }
             }
