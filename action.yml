@@ -1,4 +1,4 @@
-name: publish-to-confluence
+name: update-confluence-page-content
 description: You can update page of JIRA Confluence.
 author: santsamu
 inputs:
