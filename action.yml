@@ -1,4 +1,4 @@
-name: action-confluence
+name: publish-to-confluence
 description: You can update page of JIRA Confluence.
 author: santsamu
 inputs:
