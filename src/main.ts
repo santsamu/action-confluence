@@ -29,7 +29,7 @@ async function run(): Promise<void> {
         });
         const version = _.get(currentPage.data, 'version.number', '');
         const prevContents = _.get(currentPage.data, 'body.storage.value', '');
-        const newContents = makeContents(contentsJson);
+        let newContents = makeContents(contentsJson);
         if(appendContents) {
             newContents = prevContents + newContents;
         }
