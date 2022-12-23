@@ -1,12 +1,15 @@
 name: action-confluence
 description: You can update page of JIRA Confluence.
-author: pymc20
+author: santsamu
 inputs:
   pageId:
     description: Jira Confluence Page ID
     required: true
   pageTitle:
     description: Jira Confluence Page Title
+    required: true
+  appendContents:
+    description: Append Content
     required: true
   contentsJson:
     description: What To Edit On The Jira Confluence Page
